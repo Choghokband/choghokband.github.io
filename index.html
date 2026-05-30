@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CHOGHOK | چغوک</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#0f1115;
+    --card:#1a1f26;
+    --blue:#0B3BDA;
+    --orange:#FF8A00;
+    --text:#f5f5f5;
+    --muted:#b3b3b3;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Vazirmatn',sans-serif;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#111;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #222;
+}
+
+.logo{
+    height:70px;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:var(--orange);
+}
+
+.lang-btn{
+    background:var(--blue);
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:75vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(135deg,#0f1115,#1a1f26);
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#ccc;
+}
+
+.socials{
+    margin-top:25px;
+}
+
+.socials a{
+    display:inline-block;
+    margin:5px;
+    padding:12px 18px;
+    text-decoration:none;
+    background:var(--orange);
+    color:black;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+section{
+    padding:80px 10%;
+}
+
+.section-title{
+    color:var(--orange);
+    font-size:2rem;
+    margin-bottom:30px;
+}
+
+.releases{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.release{
+    background:var(--card);
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.release img{
+    width:100%;
+    display:block;
+}
+
+.release-content{
+    padding:20px;
+}
+
+.listen-btn{
+    display:inline-block;
+    margin-top:15px;
+    background:var(--blue);
+    color:white;
+    padding:10px 16px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+.card{
+    background:var(--card);
+    padding:25px;
+    border-radius:12px;
+}
+
+.event{
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:var(--muted);
+}
+
+.fa{
+    display:none;
+}
+
+body.fa-mode{
+    direction:rtl;
+}
+
+body.fa-mode .en{
+    display:none;
+}
+
+body.fa-mode .fa{
+    display:block;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+nav{
+    display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="band.jpg" class="logo" alt="Choghok Logo">
+
+<nav>
+
+<a href="#home">
+<span class="en">Home</span>
+<span class="fa">خانه</span>
+</a>
+
+<a href="#music">
+<span class="en">Music</span>
+<span class="fa">موسیقی</span>
+</a>
+
+<a href="#about">
+<span class="en">About</span>
+<span class="fa">درباره ما</span>
+</a>
+
+<a href="#events">
+<span class="en">Events</span>
+<span class="fa">رویدادها</span>
+</a>
+
+<a href="#shop">
+<span class="en">Shop</span>
+<span class="fa">فروشگاه</span>
+</a>
+
+</nav>
+
+<button class="lang-btn" onclick="toggleLanguage()">
+EN / فارسی
+</button>
+
+</header>
+
+<section id="home" class="hero">
+
+<div>
+
+<h1 class="en">CHOGHOK</h1>
+<h1 class="fa">چغوک</h1>
+
+<p class="en">
+Independent Alternative Music Project
+</p>
+
+<p class="fa">
+پروژه موسیقی مستقل چغوک
+</p>
+
+<div class="socials">
+
+<a href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v" target="_blank">
+Spotify
+</a>
+
+<a href="https://www.instagram.com/choghok.band/" target="_blank">
+Instagram
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="music">
+
+<h2 class="section-title">
+<span class="en">Music</span>
+<span class="fa">موسیقی</span>
+</h2>
+
+<div class="releases">
+
+<div class="release">
+
+<img src="ep.JPG" alt="EP Cover">
+
+<div class="release-content">
+
+<h3>EP</h3>
+
+<p>5 Songs</p>
+
+<a class="listen-btn"
+href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v"
+target="_blank">
+Listen on Spotify </a>
+
+</div>
+
+</div>
+
+<div class="release">
+
+<img src="single.JPG" alt="Single Cover">
+
+<div class="release-content">
+
+<h3>Single</h3>
+
+<p>Latest Release</p>
+
+<a class="listen-btn"
+href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v"
+target="_blank">
+Listen on Spotify </a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">
+<span class="en">About</span>
+<span class="fa">درباره ما</span>
+</h2>
+
+<div class="card">
+
+<p class="en">
+Write your English biography here.
+</p>
+
+<p class="fa">
+بیوگرافی فارسی گروه را اینجا بنویسید.
+</p>
+
+</div>
+
+</section>
+
+<section id="events">
+
+<h2 class="section-title">
+<span class="en">Events</span>
+<span class="fa">رویدادها</span>
+</h2>
+
+<div class="event">
+No upcoming events yet.
+</div>
+
+</section>
+
+<section id="shop">
+
+<h2 class="section-title">
+<span class="en">Shop</span>
+<span class="fa">فروشگاه</span>
+</h2>
+
+<div class="card">
+Merchandise coming soon.
+</div>
+
+</section>
+
+<footer>
+
+© Choghok
+
+</footer>
+
+<script>
+
+function toggleLanguage(){
+    document.body.classList.toggle("fa-mode");
+}
+
+</script>
+
+</body>
+</html>
