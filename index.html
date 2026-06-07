@@ -52,6 +52,14 @@ header{
     height:70px;
 }
 
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:bold;
+    font-size:1.2rem;
+}
+
 nav{
     display:flex;
     gap:20px;
@@ -236,14 +244,37 @@ nav{
 
 <header>
 
-<img src="band.jpg" class="logo" alt="Choghok Logo">
+<!-- BRAND -->
+<div class="brand">
+    <span class="en">CHOGHOK</span>
+    <span class="fa">چغوک</span>
+</div>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#music">Music</a>
-<a href="#about">About</a>
-<a href="#events">Events</a>
-<a href="#shop">Shop</a>
+<a href="#home">
+    <span class="en">Home</span>
+    <span class="fa">خانه</span>
+</a>
+
+<a href="#music">
+    <span class="en">Music</span>
+    <span class="fa">موزیک</span>
+</a>
+
+<a href="#about">
+    <span class="en">About</span>
+    <span class="fa">درباره</span>
+</a>
+
+<a href="#events">
+    <span class="en">Events</span>
+    <span class="fa">رویدادها</span>
+</a>
+
+<a href="#shop">
+    <span class="en">Shop</span>
+    <span class="fa">فروشگاه</span>
+</a>
 </nav>
 
 <button class="lang-btn" onclick="toggleLanguage()">
@@ -271,7 +302,6 @@ Choghok means any bird whose name you don’t know, just like the kind of music 
 
 </section>
 
-<!-- MUSIC -->
 <section id="music">
 
 <h2 class="section-title">
@@ -321,7 +351,6 @@ Listen on Spotify
 
 </section>
 
-<!-- ABOUT -->
 <section id="about">
 
 <h2 class="section-title">
@@ -363,7 +392,6 @@ Telegram
 
 </section>
 
-<!-- EVENTS -->
 <section id="events">
 
 <h2 class="section-title">
@@ -377,7 +405,6 @@ No upcoming events yet
 
 </section>
 
-<!-- SHOP -->
 <section id="shop">
 
 <h2 class="section-title">
