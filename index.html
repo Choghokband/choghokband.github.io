@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -36,23 +35,22 @@ body{
     font-family:'Vazirmatn',sans-serif;
 }
 
-/* 🔥 IMPROVED HEADER (glass + modern) */
+/* ================= HEADER ================= */
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    padding:14px 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-
+    padding:14px 5%;
     background:rgba(17,17,17,0.75);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
 .logo{
-    height:60px;
+    height:55px;
     transition:0.3s;
 }
 
@@ -65,9 +63,10 @@ header{
     align-items:center;
     gap:10px;
     font-weight:bold;
-    font-size:1.2rem;
+    font-size:1.1rem;
 }
 
+/* desktop nav */
 nav{
     display:flex;
     gap:18px;
@@ -84,12 +83,11 @@ nav a:hover{
     color:var(--orange);
 }
 
-/* underline hover effect */
 nav a::after{
     content:"";
     position:absolute;
-    left:0;
     bottom:-5px;
+    left:0;
     width:0%;
     height:2px;
     background:var(--orange);
@@ -100,11 +98,12 @@ nav a:hover::after{
     width:100%;
 }
 
+/* language button */
 .lang-btn{
     background:var(--blue);
     color:white;
     border:none;
-    padding:10px 15px;
+    padding:9px 14px;
     border-radius:8px;
     cursor:pointer;
     transition:0.3s;
@@ -114,6 +113,60 @@ nav a:hover::after{
     transform:translateY(-2px);
 }
 
+/* hamburger */
+.hamburger{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+    color:white;
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:70%;
+    height:100vh;
+    background:#111;
+    padding:80px 30px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    transition:0.3s;
+    z-index:2000;
+}
+
+.mobile-menu a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+/* overlay */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    z-index:1500;
+}
+
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* ================= HERO ================= */
 .hero{
     min-height:75vh;
     display:flex;
@@ -130,17 +183,28 @@ nav a:hover::after{
 }
 
 .hero h1{
-    font-size:5rem;
-    margin-bottom:15px;
+    font-size:4.5rem;
 }
 
 .hero p{
     color:#ddd;
-    font-size:1.2rem;
+    font-size:1.1rem;
+    margin-top:10px;
 }
 
+/* ================= SECTIONS ================= */
 section{
     padding:80px 10%;
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .section-title{
@@ -151,8 +215,8 @@ section{
 
 .releases{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
 }
 
 .release{
@@ -163,7 +227,7 @@ section{
 }
 
 .release:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 }
 
 .release img{
@@ -171,19 +235,20 @@ section{
 }
 
 .release-content{
-    padding:20px;
+    padding:18px;
 }
 
 .listen-btn{
     display:inline-block;
-    margin-top:15px;
+    margin-top:12px;
     background:var(--blue);
     color:white;
-    padding:10px 16px;
+    padding:10px 14px;
     border-radius:8px;
     text-decoration:none;
 }
 
+/* cards */
 .card{
     background:var(--card);
     padding:25px;
@@ -196,13 +261,14 @@ section{
     border-radius:12px;
 }
 
+/* footer */
 footer{
     text-align:center;
     padding:40px;
     color:var(--muted);
 }
 
-/* language system */
+/* ================= LANGUAGE SYSTEM ================= */
 .fa{ display:none; }
 
 body.fa-mode{ direction:rtl; }
@@ -215,18 +281,19 @@ body:not(.fa-mode) .en{ display:block; }
 
 body:not(.fa-mode) .fa{ display:none; }
 
+/* ================= RESPONSIVE ================= */
 @media(max-width:768px){
-
-.hero h1{
-    font-size:3rem;
-}
 
 nav{
     display:none;
 }
 
-.logo{
-    height:50px;
+.hamburger{
+    display:block;
+}
+
+.hero h1{
+    font-size:3rem;
 }
 
 }
@@ -237,17 +304,30 @@ nav{
 
 <body>
 
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="#home" onclick="toggleMenu()">Home</a>
+<a href="#music" onclick="toggleMenu()">Music</a>
+<a href="#about" onclick="toggleMenu()">About</a>
+<a href="#events" onclick="toggleMenu()">Events</a>
+<a href="#shop" onclick="toggleMenu()">Shop</a>
+
+</div>
+
 <header>
 
-<!-- LOGO + BRAND -->
-<div style="display:flex; align-items:center; gap:12px;">
+<div style="display:flex;align-items:center;gap:12px;">
 
-    <img src="band.jpg" class="logo" alt="Choghok Logo">
+<img src="band.jpg" class="logo">
 
-    <div class="brand">
-        <span class="en">CHOGHOK</span>
-        <span class="fa">چغوک</span>
-    </div>
+<div class="brand">
+<span class="en">CHOGHOK</span>
+<span class="fa">چغوک</span>
+</div>
 
 </div>
 
@@ -259,9 +339,13 @@ nav{
 <a href="#shop"><span class="en">Shop</span><span class="fa">فروشگاه</span></a>
 </nav>
 
-<button class="lang-btn" onclick="toggleLanguage()">
-EN / فارسی
-</button>
+<div style="display:flex;align-items:center;gap:10px;">
+
+<button class="lang-btn" onclick="toggleLanguage()">EN / FA</button>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+</div>
 
 </header>
 
@@ -274,11 +358,11 @@ EN / فارسی
 <h1 class="fa">چغوک</h1>
 
 <p class="en">
-Choghok means any bird whose name you don’t know, just like the kind of music we make
+Choghok means any bird whose name you don’t know
 </p>
 
 <p class="fa">
-چغوک یعنی هر پرنده‌ای که اسمش رو ندونی، مثل موسیقی که ما می‌سازیم
+چغوک یعنی هر پرنده‌ای که اسمش رو ندونی
 </p>
 
 </div>
@@ -300,9 +384,7 @@ Choghok means any bird whose name you don’t know, just like the kind of music 
 <div class="release-content">
 <h3>Mezghon</h3>
 <p>EP</p>
-<a class="listen-btn" href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v" target="_blank">
-Listen on Spotify
-</a>
+<a class="listen-btn" href="#">Listen</a>
 </div>
 </div>
 
@@ -311,9 +393,7 @@ Listen on Spotify
 <div class="release-content">
 <h3>Mashti</h3>
 <p>Single</p>
-<a class="listen-btn" href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v" target="_blank">
-Listen on Spotify
-</a>
+<a class="listen-btn" href="#">Listen</a>
 </div>
 </div>
 
@@ -331,13 +411,8 @@ Listen on Spotify
 
 <div class="card">
 
-<p class="en">
-Choghok<br>Based in Tehran<br>2026
-</p>
-
-<p class="fa">
-چغوک<br>تهران<br>۱۴۰۴
-</p>
+<p class="en">Choghok / Tehran / 2026</p>
+<p class="fa">چغوک / تهران / ۱۴۰۴</p>
 
 </div>
 
@@ -353,7 +428,7 @@ Choghok<br>Based in Tehran<br>2026
 
 <div class="event">
 <span class="en">No upcoming events yet</span>
-<span class="fa">فعلاً رویدادی وجود ندارد</span>
+<span class="fa">فعلاً رویدادی نیست</span>
 </div>
 
 </section>
@@ -367,8 +442,8 @@ Choghok<br>Based in Tehran<br>2026
 </h2>
 
 <div class="card">
-<span class="en">Merch coming soon</span>
-<span class="fa">محصولات به‌زودی</span>
+<span class="en">Coming soon</span>
+<span class="fa">به‌زودی</span>
 </div>
 
 </section>
@@ -378,9 +453,18 @@ Choghok<br>Based in Tehran<br>2026
 </footer>
 
 <script>
+
+/* language */
 function toggleLanguage(){
     document.body.classList.toggle("fa-mode");
 }
+
+/* mobile menu */
+function toggleMenu(){
+    document.getElementById("mobileMenu").classList.toggle("active");
+    document.getElementById("overlay").classList.toggle("active");
+}
+
 </script>
 
 </body>
