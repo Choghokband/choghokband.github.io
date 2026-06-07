@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -204,6 +203,14 @@ body.fa-mode .fa{
     display:block;
 }
 
+body:not(.fa-mode) .en{
+    display:block;
+}
+
+body:not(.fa-mode) .fa{
+    display:none;
+}
+
 @media(max-width:768px){
 
 .hero h1{
@@ -248,10 +255,13 @@ EN / فارسی
 
 <div>
 
-<h1>چغوک</h1>
+<h1 class="en">CHOGHOK</h1>
+
+<h1 class="fa">چغوک</h1>
 
 <p class="en">
-Choghok means any bird whose name you don’t know, just like the kind of music we make</p>
+Choghok means any bird whose name you don’t know, just like the kind of music we make
+</p>
 
 <p class="fa">
 چغوک یعنی هر پرنده‌ای که اسمش رو ندونی، مثل موسیقی که ما می‌سازیم
@@ -318,14 +328,15 @@ Listen on Spotify
 <div class="card">
 
 <p class="en">
-Choghok
-Based in Tehran 
-2026</p>
+Choghok<br>
+Based in Tehran<br>
+2026
+</p>
 
 <p class="fa">
-چغوک 
-تهران
-1404
+چغوک<br>
+تهران<br>
+۱۴۰۴
 </p>
 
 <div class="socials">
@@ -384,4 +395,3 @@ function toggleLanguage(){
 
 </body>
 </html>
-```
