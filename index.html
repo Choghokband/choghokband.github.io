@@ -36,20 +36,28 @@ body{
     font-family:'Vazirmatn',sans-serif;
 }
 
+/* 🔥 IMPROVED HEADER (glass + modern) */
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:#111;
-    padding:15px 5%;
+    padding:14px 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    border-bottom:1px solid #222;
+
+    background:rgba(17,17,17,0.75);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
 .logo{
-    height:70px;
+    height:60px;
+    transition:0.3s;
+}
+
+.logo:hover{
+    transform:scale(1.05);
 }
 
 .brand{
@@ -62,16 +70,34 @@ header{
 
 nav{
     display:flex;
-    gap:20px;
+    gap:18px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
+    position:relative;
+    transition:0.2s;
 }
 
 nav a:hover{
     color:var(--orange);
+}
+
+/* underline hover effect */
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:var(--orange);
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
 }
 
 .lang-btn{
@@ -81,6 +107,11 @@ nav a:hover{
     padding:10px 15px;
     border-radius:8px;
     cursor:pointer;
+    transition:0.3s;
+}
+
+.lang-btn:hover{
+    transform:translateY(-2px);
 }
 
 .hero{
@@ -89,50 +120,23 @@ nav a:hover{
     align-items:center;
     justify-content:center;
     text-align:center;
-    position:relative;
-    overflow:hidden;
 
     background:
-    linear-gradient(
-        rgba(15,17,21,0.78),
-        rgba(15,17,21,0.88)
-    ),
+    linear-gradient(rgba(15,17,21,0.78),rgba(15,17,21,0.88)),
     url("hero-bg.jpg");
 
     background-size:cover;
     background-position:center;
-    background-repeat:no-repeat;
 }
 
 .hero h1{
     font-size:5rem;
     margin-bottom:15px;
-    text-shadow:0 0 25px rgba(0,0,0,0.7);
 }
 
 .hero p{
     color:#ddd;
     font-size:1.2rem;
-}
-
-.socials{
-    margin-top:25px;
-}
-
-.socials a{
-    display:inline-block;
-    margin:5px;
-    padding:12px 18px;
-    text-decoration:none;
-    background:var(--orange);
-    color:black;
-    border-radius:8px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.socials a:hover{
-    transform:translateY(-2px);
 }
 
 section{
@@ -155,11 +159,15 @@ section{
     background:var(--card);
     border-radius:12px;
     overflow:hidden;
+    transition:0.3s;
+}
+
+.release:hover{
+    transform:translateY(-5px);
 }
 
 .release img{
     width:100%;
-    display:block;
 }
 
 .release-content{
@@ -186,7 +194,6 @@ section{
     background:var(--card);
     padding:20px;
     border-radius:12px;
-    margin-bottom:15px;
 }
 
 footer{
@@ -196,29 +203,17 @@ footer{
 }
 
 /* language system */
-.fa{
-    display:none;
-}
+.fa{ display:none; }
 
-body.fa-mode{
-    direction:rtl;
-}
+body.fa-mode{ direction:rtl; }
 
-body.fa-mode .en{
-    display:none;
-}
+body.fa-mode .en{ display:none; }
 
-body.fa-mode .fa{
-    display:block;
-}
+body.fa-mode .fa{ display:block; }
 
-body:not(.fa-mode) .en{
-    display:block;
-}
+body:not(.fa-mode) .en{ display:block; }
 
-body:not(.fa-mode) .fa{
-    display:none;
-}
+body:not(.fa-mode) .fa{ display:none; }
 
 @media(max-width:768px){
 
@@ -231,7 +226,7 @@ nav{
 }
 
 .logo{
-    height:55px;
+    height:50px;
 }
 
 }
@@ -250,37 +245,18 @@ nav{
     <img src="band.jpg" class="logo" alt="Choghok Logo">
 
     <div class="brand">
-        <span class="en"></span>
-        <span class="fa"></span>
+        <span class="en">CHOGHOK</span>
+        <span class="fa">چغوک</span>
     </div>
 
 </div>
 
 <nav>
-<a href="#home">
-    <span class="en">Home</span>
-    <span class="fa">خانه</span>
-</a>
-
-<a href="#music">
-    <span class="en">Music</span>
-    <span class="fa">موزیک</span>
-</a>
-
-<a href="#about">
-    <span class="en">About</span>
-    <span class="fa">درباره</span>
-</a>
-
-<a href="#events">
-    <span class="en">Events</span>
-    <span class="fa">رویدادها</span>
-</a>
-
-<a href="#shop">
-    <span class="en">Shop</span>
-    <span class="fa">فروشگاه</span>
-</a>
+<a href="#home"><span class="en">Home</span><span class="fa">خانه</span></a>
+<a href="#music"><span class="en">Music</span><span class="fa">موزیک</span></a>
+<a href="#about"><span class="en">About</span><span class="fa">درباره</span></a>
+<a href="#events"><span class="en">Events</span><span class="fa">رویدادها</span></a>
+<a href="#shop"><span class="en">Shop</span><span class="fa">فروشگاه</span></a>
 </nav>
 
 <button class="lang-btn" onclick="toggleLanguage()">
@@ -289,6 +265,7 @@ EN / فارسی
 
 </header>
 
+<!-- HERO -->
 <section id="home" class="hero">
 
 <div>
@@ -308,48 +285,35 @@ Choghok means any bird whose name you don’t know, just like the kind of music 
 
 </section>
 
+<!-- MUSIC -->
 <section id="music">
 
 <h2 class="section-title">
-    <span class="en">Music</span>
-    <span class="fa">موزیک</span>
+<span class="en">Music</span>
+<span class="fa">موزیک</span>
 </h2>
 
 <div class="releases">
 
 <div class="release">
-
-<img src="ep.JPG" alt="EP Cover">
-
+<img src="ep.JPG">
 <div class="release-content">
-
 <h3>Mezghon</h3>
 <p>EP</p>
-
-<a class="listen-btn"
-href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v"
-target="_blank">
+<a class="listen-btn" href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v" target="_blank">
 Listen on Spotify
 </a>
-
 </div>
 </div>
 
 <div class="release">
-
-<img src="single.JPG" alt="Single Cover">
-
+<img src="single.JPG">
 <div class="release-content">
-
 <h3>Mashti</h3>
-<p>Latest Release</p>
-
-<a class="listen-btn"
-href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v"
-target="_blank">
+<p>Single</p>
+<a class="listen-btn" href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v" target="_blank">
 Listen on Spotify
 </a>
-
 </div>
 </div>
 
@@ -357,69 +321,54 @@ Listen on Spotify
 
 </section>
 
+<!-- ABOUT -->
 <section id="about">
 
 <h2 class="section-title">
-    <span class="en">About</span>
-    <span class="fa">درباره</span>
+<span class="en">About</span>
+<span class="fa">درباره</span>
 </h2>
 
 <div class="card">
 
 <p class="en">
-Choghok<br>
-Based in Tehran<br>
-2026
+Choghok<br>Based in Tehran<br>2026
 </p>
 
 <p class="fa">
-چغوک<br>
-تهران<br>
-۱۴۰۴
+چغوک<br>تهران<br>۱۴۰۴
 </p>
-
-<div class="socials">
-
-<a href="https://open.spotify.com/artist/3ijgmGAk6wRYqXW5BUkh4v" target="_blank">
-Spotify
-</a>
-
-<a href="https://www.instagram.com/choghok.band/" target="_blank">
-Instagram
-</a>
-
-<a href="https://t.me/choghokband" target="_blank">
-Telegram
-</a>
-
-</div>
 
 </div>
 
 </section>
 
+<!-- EVENTS -->
 <section id="events">
 
 <h2 class="section-title">
-    <span class="en">Events</span>
-    <span class="fa">رویدادها</span>
+<span class="en">Events</span>
+<span class="fa">رویدادها</span>
 </h2>
 
 <div class="event">
-.
+<span class="en">No upcoming events yet</span>
+<span class="fa">فعلاً رویدادی وجود ندارد</span>
 </div>
 
 </section>
 
+<!-- SHOP -->
 <section id="shop">
 
 <h2 class="section-title">
-    <span class="en">Shop</span>
-    <span class="fa">فروشگاه</span>
+<span class="en">Shop</span>
+<span class="fa">فروشگاه</span>
 </h2>
 
 <div class="card">
-.
+<span class="en">Merch coming soon</span>
+<span class="fa">محصولات به‌زودی</span>
 </div>
 
 </section>
@@ -429,11 +378,9 @@ Telegram
 </footer>
 
 <script>
-
 function toggleLanguage(){
     document.body.classList.toggle("fa-mode");
 }
-
 </script>
 
 </body>
