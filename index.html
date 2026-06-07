@@ -176,21 +176,26 @@ section{
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.gallery a{
+    display:block;
 }
 
 .gallery img{
     width:100%;
-    display:block;
+    height:300px;
+    object-fit:cover;
     border-radius:12px;
+    cursor:pointer;
     transition:0.3s;
 }
 
 .gallery img:hover{
     transform:scale(1.03);
 }
-
 .event{
     background:var(--card);
     padding:20px;
@@ -383,10 +388,21 @@ Telegram
 
 <div class="gallery">
 
-<img src="img1.heic" alt="Gallery Image 1">
+<a href="img1.jpg" target="_blank">
+<img src="img1.jpg" alt="Gallery Image 1">
+</a>
+
+<a href="img2.JPG" target="_blank">
 <img src="img2.JPG" alt="Gallery Image 2">
+</a>
+
+<a href="img3.JPG" target="_blank">
 <img src="img3.JPG" alt="Gallery Image 3">
+</a>
+
+<a href="img4.JPG" target="_blank">
 <img src="img4.JPG" alt="Gallery Image 4">
+</a>
 
 </div>
 
